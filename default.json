@@ -1,0 +1,42 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "automerge": false,
+  "branchPrefix": "feature/",
+  "dependencyDashboard": true,
+  "dependencyDashboardApproval": false,
+  "description": "Set common configuration and package rules",
+  "extends": [
+    "config:recommended",
+    ":semanticCommits",
+    ":semanticCommitTypeAll(chore)"
+  ],
+  "internalChecksFilter": "strict",
+  "labels": ["dependencies"],
+  "lockFileMaintenance": {
+    "automerge": true,
+    "description": "Update lock files on Sunday between 5pm and 7pm",
+    "enabled": true,
+    "schedule": ["* 17-19 *  *7"]
+  },
+  "minimumReleaseAge": "3 days",
+  "packageRules": [],
+  "postUpdateOptions": ["gomodTidy", "pnpmDedupe"],
+  "prConcurrentLimit": 1,
+  "prHourlyLimit": 3,
+  "rangeStrategy": "pin",
+  "schedule": ["* 9-16 * * 1-5"],
+  "separateMajorMinor": true,
+  "separateMinorPatch": false,
+  "timezone": "America/Denver",
+  "vulnerabilityAlerts": {
+    "assigneesFromCodeOwners": true,
+    "commitMessageSuffix": "[SECURITY]",
+    "enabled": true,
+    "labels": ["security"],
+    "minimumReleaseAge": null,
+    "prCreation": "immediate",
+    "reviewersFromCodeOwners": true,
+    "schedule": [],
+    "vulnerabilityFixStrategy": "lowest"
+  }
+}
